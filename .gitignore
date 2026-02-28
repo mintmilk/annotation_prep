@@ -1,0 +1,14 @@
+# Outputs
+01_enhancer/output/
+02_te_annotation/output/
+
+# Downloaded raw data
+01_enhancer/raw/
+02_te_annotation/raw/
+shared/assembly_report.txt
+shared/refseq_to_ensembl.tsv
+
+# OS / editor
+.DS_Store
+
+.claude/
