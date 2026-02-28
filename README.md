@@ -33,6 +33,47 @@ annotation_prep/
 
 推荐先准备一个可复用环境（如 conda）。
 
+## 数据来源
+
+本项目所有原始数据均由脚本自动下载。
+
+### Enhancer 流程数据
+
+- **Chicken FAANG 染色质状态数据（Pan et al., 2023）**  
+  来源主页：`https://figshare.com/articles/dataset/Chicken_FAANG/20032103`  
+  脚本下载链接（`01_enhancer/download.sh`）：
+  - `https://ndownloader.figshare.com/files/35778266`
+  - `https://ndownloader.figshare.com/files/35778269`
+  - `https://ndownloader.figshare.com/files/35778272`
+  本地文件：`01_enhancer/raw/Chromatin_state_1.zip` 等
+
+- **UCSC liftOver chain（galGal6 -> GRCg7b / GCF_016699485.2）**  
+  来源：UCSC  
+  URL：`https://hgdownload.soe.ucsc.edu/goldenPath/galGal6/liftOver/galGal6ToGCF_016699485.2.over.chain.gz`  
+  本地文件：`01_enhancer/raw/galGal6ToGCF_016699485.2.over.chain.gz`
+
+### TE 注释流程数据
+
+- **RepeatMasker 结果（GRCg7b）**  
+  来源：UCSC GenArk hub（GCF_016699485.2）  
+  URL：`https://hgdownload.soe.ucsc.edu/hubs/GCF/016/699/485/GCF_016699485.2/GCF_016699485.2.repeatMasker.out.gz`  
+  本地文件：`02_te_annotation/raw/GCF_016699485.2.repeatMasker.out.gz`
+
+- **makeTEgtf.pl 脚本（TEtranscripts 相关社区镜像）**  
+  来源：GitHub 附件（Hammell lab 项目讨论中提供）  
+  URL：`https://github.com/mhammell-laboratory/TEtranscripts/files/5610260/makeTEGTF.pl.gz`  
+  本地文件：`02_te_annotation/raw/makeTEgtf.pl`
+
+### 染色体命名映射数据
+
+- **NCBI Assembly Report（GRCg7b）**  
+  来源：NCBI FTP  
+  URL：`https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/699/485/GCF_016699485.2_bGalGal1.mat.broiler.GRCg7b/GCF_016699485.2_bGalGal1.mat.broiler.GRCg7b_assembly_report.txt`  
+  下载脚本：`shared/download_assembly_report.sh`  
+  产物文件：
+  - `shared/assembly_report.txt`
+  - `shared/refseq_to_ensembl.tsv`（由脚本从 assembly report 解析得到）
+
 ## 快速开始
 
 在项目根目录执行。
